@@ -5,7 +5,7 @@ import routesActor from './src/actor/routes.js';
 import routesPelicula from './src/pelicula/routes.js'
 
 
-const PORTS =  process.env.PORT|| 3000
+const PORT =  process.env.PORT|| 3000
 const app = express()
 
 app.use(express.json());
