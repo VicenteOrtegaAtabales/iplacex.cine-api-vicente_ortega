@@ -5,7 +5,7 @@ import routesActor from './src/actor/routes.js';
 import routesPelicula from './src/pelicula/routes.js'
 
 
-const PORTS = 3000 || 4000
+const PORTS =  process.env.PORT|| 3000
 const app = express()
 
 app.use(express.json());
@@ -17,11 +17,4 @@ app.get('/', (req, res) => { return res.status(200).send('Bienvenido al cine Ipl
 app.use('/api', routesActor)
 app.use('/api', routesPelicula)
 
-await client.connect()
-.then(() => {
-    console.log('Se ha conectado al clúster con éxito')
-    app.listen(PORTS, () => { console.log(`Servidor corriendo en http://localhost:${PORTS}`)})
-})
-.catch(() => {
-    console.log('Error al conectar al clúster')
-})
+app.listen(PORT, () => { console.log(`Servidor corriendo en el puerto ${PORT}`) })
